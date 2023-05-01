@@ -209,7 +209,7 @@ $result = "";
 
     	<!--?php require "includes/side_wrapper.php"; ?-->
         <div class="header">
-            <h4 class="title">Reservation List</h4>
+            <h4 class="title">Reservation Details</h4>
         </div>
     <div class="main-panel">
        
