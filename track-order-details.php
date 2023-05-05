@@ -12,7 +12,7 @@ include_once('includes/dbconnection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <title>Food Ordering System | Food Details</title>
+    <title>JacksFoodChain | Food Details</title>
     <link rel="stylesheet" href="assets/css/icons.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -140,7 +140,7 @@ echo $status;
     <th>#</th>
     <th>Food Item</th>
     <th>Qty</th>
-    <th>Per Unit Price</th>
+    <th>Price</th>
        <th>Total</th>
 
 </tr>
@@ -168,8 +168,10 @@ while ($row=mysqli_fetch_array($query)) {
 <?php $grandtotal+=$total;}?>
 <thead>
 <tr>
-    <th colspan="4" style="text-align:center;">Grand Total</th>
-<th style="text-align:center;"><?php echo $grandtotal;?></th>
+    <th colspan="4" style="text-align:center;">
+    Total Amount to Pay: 
+</th>
+<th style="text-align:center;">₱ <?php echo $grandtotal;?></th>
 </tr>
 </thead>
 

@@ -17,7 +17,9 @@ if (strlen($_SESSION['fosaid']==0)) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>
+        JacksFoodChain
+    </title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -91,7 +93,7 @@ while ($row=mysqli_fetch_array($ret)) {
                 <tr>
                     <td><?php echo $cnt;?></td>
                   <td><?php  echo $row['lmonth']."/".$row['lyear'];?></td>
-              <td><?php  echo $total=$row['totalitmprice'];?></td>
+              <td>₱ <?php  echo $total=$row['totalitmprice'];?></td>
              
                     </tr>
                 <?php
@@ -101,7 +103,7 @@ $cnt++;
    
    <tr>
                   <td colspan="2" align="center">Total </td>
-              <td><?php  echo $ftotal;?></td>
+              <td>₱ <?php  echo $ftotal;?></td>
    
                  
                  

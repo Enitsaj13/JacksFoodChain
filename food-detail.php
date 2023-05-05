@@ -1,3 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>JacksFoodChain | Food Details</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+
+    <link rel="stylesheet" href="assets/css/icons.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/red-color.css">
+    <link rel="stylesheet" href="assets/css/yellow-color.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+">
+
+</head>
+
 <?php
 session_start();
 error_reporting(0);
@@ -10,29 +34,28 @@ $userid= $_SESSION['fosuid'];
 $query=mysqli_query($con,"insert into tblorders(UserId,FoodId,FoodQty) values('$userid','$foodid','$foodqty') ");
 if($query)
 {
- echo "<script>alert('Food has been added in to the cart');</script>";   
+   // show toast alert from bootstrap 4 
+   echo '<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <strong class="mr-auto">Bootstrap Toast</strong>
+    <small>just now</small>
+    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="toast-body">
+    This is a Bootstrap toast.
+  </div>
+</div>';
+
+
+  
 } else {
  echo "<script>alert('Something went wrong.');</script>";      
 }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <title>Food Ordering System | Food Details</title>
-
-    <link rel="stylesheet" href="assets/css/icons.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/red-color.css">
-    <link rel="stylesheet" href="assets/css/yellow-color.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-</head>
 <body itemscope>
 <?php include_once('includes/header.php');?>
      
@@ -95,16 +118,18 @@ while ($row=mysqli_fetch_array($ret)) {
     												
     												</div>
     										
-    												<span class="price">Rs.<?php echo $row['ItemPrice'];?></span>
+    												<span class="price">₱<?php echo $row['ItemPrice'];?></span>
     												<div class="qty-wrap">
     						  <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>"> 
     <input class="qty" name="foodqty" type="text" value="1">
     												</div>
     												<p itemprop="description"><?php echo $row['ItemDes'];?></p>
 <?php if($_SESSION['fosuid']==""){?>
-  <a class="log-popup-btn" href="#" title="Login"  class="btn  pull-right red-bg brd-rd3">Add to Cart</a>
+  <a class="log-popup-btn" href="#" title="Login" class="btn btn-primary pull-left" style="margin-top: 40px;"><i class='bx bxs-cart'></i>
+Add to Cart</a>
 <?php } else {?>
-<button type="submit" name="addcart" class="btn  pull-right red-bg brd-rd3">Add to Cart</button>
+<button type="submit" name="addcart" class="btn btn-primary pull-left" style="margin-top: 40px;"><i class='bx bxs-cart'></i>
+Add to Cart</button>
                                                 <?php } ?>
     											</div>
     										</div>

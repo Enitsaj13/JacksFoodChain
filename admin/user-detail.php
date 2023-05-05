@@ -12,7 +12,6 @@ if (isset($_GET['del'])) {
 $catid=intval($_GET['del']);    
 $query=mysqli_query($con,"delete from tbluser where ID='$catid'");
     if ($query) {
-     echo "<script>alert('User deleted');</script>";
      echo "<script>window.location.href='user-detail.php'</script>";
   }
   else
@@ -31,7 +30,7 @@ $query=mysqli_query($con,"delete from tbluser where ID='$catid'");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -39,6 +38,7 @@ $query=mysqli_query($con,"delete from tbluser where ID='$catid'");
     <link href="css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 
@@ -61,9 +61,9 @@ $query=mysqli_query($con,"delete from tbluser where ID='$catid'");
                 <div class="col-lg-12">
                     <div class="ibox">
                         
-                        <div class="ibox-content">
+                        <div class="ibox-content content table-responsive table-full-width">
                                  <table class="table table-bordered mg-b-0">
-                                    <p style="color: blue; text-align: center;  font-size: 30px">User Details </p>
+                                    <p style="color: black; text-align: center; font-size: 30px">User Details </p>
               <thead>
                 <tr>
                   <th>S.NO</th>
@@ -91,8 +91,12 @@ while ($row=mysqli_fetch_array($ret)) {
                   <td><?php  echo $row['Email'];?></td>
                   
                 
-                 <td><a href="edit-userprofile.php?userid=<?php echo $row['ID'];?>">Edit</a> |
-                 <a href="user-detail.php?del=<?php echo $row['ID'];?>" style="color:red;" onclick="return confirm('Do you really want to delete the category?');">Delete</a></td>
+                 <td><a href="edit-userprofile.php?userid=<?php echo $row['ID'];?>">
+                <i class="fa fa-edit fa-1x"></i>
+                </a> 
+                 <a href="user-detail.php?del=<?php echo $row['ID'];?>" style="color:red;" onclick="return confirm('Do you really want to delete the category?');">
+                <i class="fa fa-trash fa-1x"></i>
+                </a></td>
                 </tr>
                 <?php 
 $cnt=$cnt+1;

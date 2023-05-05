@@ -11,8 +11,8 @@ include_once('includes/dbconnection.php');
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>JacksFoodChain | Contact us</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
 
-    
 
     <link rel="stylesheet" href="assets/css/icons.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -81,7 +81,7 @@ include_once('includes/dbconnection.php');
                                                 <i class="fa fa-envelope"></i>
                                                 <h5 itemprop="headline">EMAIL</h5>
                                                 <p itemprop="description">
-                                                jacksfoodchain@gmail.com
+                                                JacksFoodChain@gmail.com
                                                 </p>
                                             </div>
                                         </div>

@@ -27,10 +27,8 @@ include_once('includes/dbconnection.php');
 					if($insert) {
 						
 						$ins_id = $con->insert_id;
-						
-						$reserve_code = "UNIQUE_$ins_id".substr($phone, 3, 8);
-						
-						$msg = "<p style='padding: 15px; color: green; background: #eeffee; font-weight: bold; font-size: 13px; border-radius: 4px; text-align: center;'>Reservation placed successfully. Your reservation code is $reserve_code. Please Note that reservation expires after one hour</p>";
+												
+						$msg = "<p style='padding: 15px; color: green; background: #eeffee; font-weight: bold; font-size: 13px; border-radius: 4px; text-align: center;'>Reservation placed successfully.</p>";
 						
 					}else{
 						
@@ -57,7 +55,9 @@ include_once('includes/dbconnection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <title>JacksFoodChain | Track Order</title>
+    <title>JacksFoodChain</title>
+	<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
     <link rel="stylesheet" href="assets/css/icons.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -144,7 +144,8 @@ include_once('includes/dbconnection.php');
 
                     <label>Date</label>
 
-                    <input type="text" class="form-control datepicker" name="date_res" autocomplete="off">
+                    <input type="text" class="form-control datepicker" name="date_res" id="date_res" onchange="validateDate()"
+					placeholder="Select date for booking" required>
 
 				</div>
 				
@@ -182,6 +183,29 @@ include_once('includes/dbconnection.php');
 	</div>
 	
 </div>
+
+<script>
+
+	const today = new Date();
+	const tomorrow = new Date(today);
+	tomorrow.setDate(tomorrow.getDate() + 1);
+	const afterTomorrow = new Date(today);
+	afterTomorrow.setDate(tomorrow.getDate() + 1);
+	document.querySelector("#date_res").setAttribute("min", tomorrow.toISOString().split("T")[0]);
+	document.querySelector("#date_res").setAttribute("max", afterTomorrow.toISOString().split("T")[0]);
+
+	function validateDate() {
+		var date = document.getElementById("date_res").value;
+		var today = new Date();
+		var date_res = new Date(date);
+		if(date_res < today) {
+			alert("Please select another date.");
+			document.getElementById("date_res").value = "";
+		}
+	} 
+
+
+</script>
 
 
 <?php include_once('includes/footer.php');

@@ -9,9 +9,11 @@ $userid= $_SESSION['fosuid'];
 $query=mysqli_query($con,"insert into tblorders(UserId,FoodId,FoodQty) values('$userid','$foodid','$foodqty') ");
 if($query)
 {
- echo "<script>alert('Food has been added in to the cart');</script>";   
+    $msg= "<p style='padding: 15px; color: green; background: #ccffcc; font-weight: bold; font-size: 13px; border-radius: 4px; text-align: right;'> Food has been added to the cart</p>";
+
 } else {
- echo "<script>alert('Something went wrong.');</script>";      
+    $msg = "<p style='padding: 15px; color: red; background: #ffeeee; font-weight: bold; font-size: 13px; border-radius: 4px; text-align: right;'> Something Went Wrong. Please try again
+    </p>";
 }
 }
 ?>
@@ -24,6 +26,8 @@ if($query)
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <title>JacksFoodChain</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
     
 
     <link rel="stylesheet" href="assets/css/icons.min.css">
@@ -32,6 +36,8 @@ if($query)
     <link rel="stylesheet" href="assets/css/red-color.css">
     <link rel="stylesheet" href="assets/css/yellow-color.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body itemscope>
 <?php include_once('includes/header.php');?>
@@ -41,11 +47,14 @@ if($query)
                 <div class="fixed-bg" style="background-image: url(assets/images/parallax2.jpg);"></div>
                 <div class="restaurant-searching style2 text-center">
                     <div class="restaurant-searching-inner">
+                        
 						<span>Welcome to <i>JacksFoodChain</i> </span>
                         <h2 itemprop="headline">Order and it will be delivered</h2>
+                        <?php echo "<br/>".$msg; ?>
+
                         <form class="restaurant-search-form2 brd-rd30" method="post" action="search-result.php">
            <input class="brd-rd30" type="text" placeholder="Dish Name" required="true"  name="searchdata">
-                            <button class="brd-rd30 red-bg" type="submit" name="search">SEARCH</button>
+                            <button class="brd-rd30" style="background-color: #3B71CA;" type="submit" name="search">SEARCH</button>
                         </form>
                     </div>
                 </div><!-- Restaurant Searching -->
@@ -83,9 +92,10 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
     while($row = mysqli_fetch_array($result)){
 	?>
 
-
                                         <div class="col-md-4 col-sm-6 col-lg-4">
+                                            
                                         <div class="popular-dish-box style2 wow fadeIn" data-wow-delay="0.2s">
+
                                             <div class="popular-dish-thumb">
                                                 <a href="food-detail.php?fid=<?php echo $row['ID'];?>" title="" itemprop="url"><img src="admin/itemimages/<?php echo $row['Image'];?>" alt="<?php echo $row['ItemName'];?>" itemprop="image" width="400" height="180"></a>
                                             </div>
@@ -96,12 +106,16 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
     <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>"> 
 	<input class="qty" name="foodqty" type="text" value="1">
                                                </p>
-                                                <span class="price">Sh. <?php echo $row['ItemPrice'];?></span>
+                                                <span class="price">₱ <?php echo $row['ItemPrice'];?></span>
 
                               <?php if($_SESSION['fosuid']==""){?>
-  <a class="log-popup-btn btn  pull-right blue-bg brd-rd3" href="#" title="Login">Add to Cart</a>
+  <a class="log-popup-btn btn btn-primary pull-right brd-rd3" href="#" title="Login">
+  <i class='bx bxs-cart'></i>
+  Add to Cart</a>
+  
 <?php } else {?>
-<button type="submit" name="addcart" class="btn  pull-right blue-bg brd-rd3">Add to Cart</button>
+<button type="submit" name="addcart" class="btn btn-primary pull-right brd-rd3"><i class='bx bxs-cart'></i>
+Add to Cart</button>
                                                 <?php } ?>
                                         </form>
                                             </div>

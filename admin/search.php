@@ -17,7 +17,7 @@ if (strlen($_SESSION['fosaid']==0)) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -70,7 +70,7 @@ if (strlen($_SESSION['fosaid']==0)) {
             <div class="form-row">
               <div class="col-md-12">
                 <div class="form-label-group">
-            <p style="text-align: center; font-size: 18px"><strong>Search by Order Number:</strong>      <input type="text" id="searchdata" name="searchdata" cclass="form-control white_bg" required="required" autofocus="autofocus" ></p>
+            <p style="text-align: center; font-size: 18px"><strong>Search by Order Number:</strong><input type="number" id="searchdata" name="searchdata" cclass="form-control white_bg" required="required" autofocus="autofocus" ></p>
                   
                 </div>
               </div>
@@ -116,7 +116,7 @@ while ($row=mysqli_fetch_array($ret)) {
 $cnt=$cnt+1;
 } } else { ?>
   <tr>
-    <td colspan="8"> No record found against this search</td>
+    <td colspan="8" style="text-align: center"> No record found against this search</td>
 
   </tr>
    

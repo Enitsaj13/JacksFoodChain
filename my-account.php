@@ -12,6 +12,7 @@
     $sid=$_SESSION['fosuid'];
     $fname=$_POST['firstname'];
     $lname=$_POST['lastname'];
+
     
    
 
@@ -56,7 +57,8 @@ $msg="Your current password is wrong";
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="" />
       <meta name="keywords" content="" />
-      <title>Food Ordering System | My Account</title>
+      <title>JacksFoodChain | My Account</title>
+      <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
       <link rel="stylesheet" href="assets/css/icons.min.css">
       <link rel="stylesheet" href="assets/css/bootstrap.min.css">
       <link rel="stylesheet" href="assets/css/main.css">
@@ -134,8 +136,8 @@ while ($row=mysqli_fetch_array($ret)) {
                                        <div class="user-info red-bg">
                                           <img class="brd-rd50" src="assets/images/profile.png" alt="user-avatar.jpg" itemprop="image">
                                           <div class="user-info-inner">
-                                             <h5 itemprop="headline"><a href="#" title="" itemprop="url"><?php  echo $row['FirstName']." ".$row['LastName'];?></a></h5>
-                                             <span><a href="#" title="" itemprop="url"><?php  echo $row['Email'];?></a></span>
+                                             <h5 itemprop="headline"><a style="color: black;"href="#" title="" itemprop="url"><?php  echo $row['FirstName']." ".$row['LastName'];?></a></h5>
+                                             <span><a style="color: black;" href="#" title="" itemprop="url"><?php echo $row['Email'];?></a></span>
                                              <a class="brd-rd3 sign-out-btn yellow-bg" href="logout.php" title="" itemprop="url"><i class="fa fa-sign-out"></i> SIGN OUT</a>
                                           </div>
                                        </div>
@@ -231,7 +233,7 @@ echo $status;
 
                       
                                                          <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="red-bg brd-rd3" type="submit" name="changepassword">Change Password</button>
+                                <button class="btn btn-primary brd-rd3" type="submit" name="changepassword">Change Password</button>
                             </div>
                                                         </form>
                                        </div>
@@ -275,11 +277,31 @@ while ($row=mysqli_fetch_array($ret)) {
                                                        
                                                             <div class="col-md-6 col-sm-6 col-lg-6">
                                                                <label>Registraton Date </label>
-                                                               <input class="brd-rd3" type="text" name="regdate" value="<?php  echo $row['RegDate'];?>" readonly="true">
+                                                               <input class="brd-rd3" type="text" readonly="true" name="regdate" value="<?php  echo $row['RegDate'];?>" readonly="true">
+                                                            </div>
+
+                                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                               <label>Street Address <sup>*</sup></label>
+                                                               <input class="brd-rd3" type="text" name="address" value="<?php  echo $row['Address'];?>">
+                                                            </div>
+
+                                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                               <label>City <sup>*</sup></label>
+                                                               <input class="brd-rd3" type="text" name="city" value="<?php  echo $row['City'];?>" >
+                                                            </div>
+
+                                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                               <label>Barangay <sup>*</sup></label>
+                                                               <input class="brd-rd3" type="text" name="barangay" value="<?php  echo $row['Barangay'];?>">
+                                                            </div>
+
+                                                            <div class="col-md-6 col-sm-6 col-lg-6">
+                                                               <label>Zipcode <sup>*</sup></label>
+                                                               <input class="brd-rd3" type="text" name="zipcode" value="<?php  echo $row['ZipCode'];?>">
                                                             </div>
                                                       
                                                          <div class="col-md-12 col-sm-12 col-lg-12">
-                                <button class="red-bg brd-rd3" type="submit" name="updateprofile">Update Profile</button>
+                                <button class="btn btn-primary brd-rd3" type="submit" name="updateprofile">Update Profile</button>
                             </div>
                                                          </div>
                                                       </form>

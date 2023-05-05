@@ -11,6 +11,8 @@ header("location: customerlogin.php");
 
   <head>
     <title> JacksFoodChain </title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
   </head>
 
   <link rel="stylesheet" type = "text/css" href ="css/payment.css">

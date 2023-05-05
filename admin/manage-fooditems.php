@@ -11,7 +11,6 @@ if (isset($_GET['delfood'])) {
 $catid=intval($_GET['delfood']);    
 $query=mysqli_query($con,"delete from tblfood where ID='$catid'");
     if ($query) {
-     echo "<script>alert('Food item  deleted from menu');</script>";
      echo "<script>window.location.href='manage-fooditems.php'</script>";
   } 
    else 
@@ -30,7 +29,7 @@ $query=mysqli_query($con,"delete from tblfood where ID='$catid'");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -38,6 +37,7 @@ $query=mysqli_query($con,"delete from tblfood where ID='$catid'");
     <link href="css/plugins/steps/jquery.steps.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
 
 </head>
 
@@ -84,8 +84,12 @@ while ($row=mysqli_fetch_array($ret)) {
               
                   <td><?php  echo $row['CategoryName'];?></td>
                   <td><?php  echo $row['ItemName'];?></td>
-                  <td><a href="editfooditem.php?editid=<?php echo $row['ID'];?>">Edit</a> | 
-                    <a href="manage-fooditems.php?delfood=<?php echo $row['ID'];?>" style="color:red;" onclick="return confirm('Do you really want to delete the food item?');">Delete</a>
+                  <td><a href="editfooditem.php?editid=<?php echo $row['ID'];?>">
+                  <i class="fa fa-edit fa-1x"></i></a> 
+                  </a> 
+                    <a href="manage-fooditems.php?delfood=<?php echo $row['ID'];?>" style="color:red;" onclick="return confirm('Do you really want to delete the food item?');">
+                    <i class="fa fa-trash fa-1x"></i></a>
+                    </a>
                 </tr>
                 <?php 
 $cnt=$cnt+1;

@@ -10,12 +10,13 @@ include_once('includes/dbconnection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <title>Food Ordering System | Track Order</title>
+    <title>JacksFoodChain | Track Order</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
     <link rel="stylesheet" href="assets/css/icons.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/red-color.css">
-    <link rel="stylesheet" href="assets/css/yellow-color.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body itemscope>
@@ -62,11 +63,11 @@ include_once('includes/dbconnection.php');
                                                 <form class="sign-form" method="post" action="track-order-details.php">
                                                     <div class="row">
                                                         <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                        <input class="brd-rd3" type="text" placeholder="Order Number" name="orderno" required="true">
+                        <input class="brd-rd3" type="number" placeholder="Order Number" name="orderno" required="true">
                                                         </div>
                                                      
                                                         <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                                                            <button class="red-bg brd-rd3" type="submit">Submit</button>
+                                                            <button class="btn btn-primary brd-rd3" onMouseLeave="this.style.color='white'" type="submit">Submit</button>
                                                         </div>
                                                
                                                     </div>

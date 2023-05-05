@@ -18,6 +18,8 @@ window.print();
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Track Order</title>
+<link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
 </head>
 <body>
 
@@ -56,8 +58,10 @@ while ($row=mysqli_fetch_array($query)) {
 $grandtotal+=$total;
 $cnt=$cnt+1;} ?>
 <tr>
-  <th colspan="5" style="text-align:center">Grand Total </th>
-<td><?php  echo $grandtotal;?></td>
+  <th colspan="5" style="text-align:center">
+  Total Amount to Pay:
+ </th>
+<td>₱ <?php echo $grandtotal;?></td>
 </tr>
 </table>
      

@@ -72,27 +72,3 @@ nav > div > ul > li a:focus,
 {
 	border-color: #ffbe00;
 }
-
-/*===== Border Top Color =====*/ 
-
-{
-	border-top-color: #ffbe00;
-}
-
-/*===== Border Right Color =====*/ 
-
-{
-	border-right-color: #ffbe00;
-}
-
-/*===== Border Bottom Color =====*/
-
-{
-	border-bottom-color: #ffbe00;
-}
-
-/*===== Border Left Color =====*/ 
-
-{
-	border-left-color: #ffbe00;
-}

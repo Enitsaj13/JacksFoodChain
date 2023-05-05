@@ -55,7 +55,7 @@ return true;
         <div class="row">
 
             <div class="col-md-6">
-                <h2 class="font-bold">Food Ordering System | Admin  Reset Password</h2>
+                <h2 class="font-bold">JacksFoodChain | Admin  Reset Password</h2>
 
               
             </div>

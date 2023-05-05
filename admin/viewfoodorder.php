@@ -49,7 +49,7 @@ mail($toemail,$subj,$msgec,$heade);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -201,11 +201,11 @@ $cnt=1;?>
  Order  Details</td></tr> 
 
  <tr>
-    <th>#</th>
+<th>#</th>
 <th>Food </th>
 <th>Food Name</th>
 <th>Qty</th>
-<th>Price/Unit</th>
+<th>Price</th>
 <th>Total</th>
 </tr>
 <?php  
@@ -223,8 +223,10 @@ while ($row1=mysqli_fetch_array($query)) {
 $grandtotal+=$total;
 $cnt=$cnt+1;} ?>
 <tr>
-  <th colspan="5" style="text-align:center">Grand Total </th>
-<td><?php  echo $grandtotal;?></td>
+  <th colspan="5" style="text-align:center">
+  Total Price: 
+</th>
+<td>₱ <?php echo $grandtotal;?></td>
 </tr> 
 
 

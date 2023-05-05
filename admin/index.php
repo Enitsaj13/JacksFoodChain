@@ -42,9 +42,7 @@ if(isset($_POST['login']))
         <div class="row">
 
             <div class="col-md-6">
-                <h2 class="font-bold">Food Ordering System | Admin Login</h2>
-
-              
+                <h2 class="font-bold">JacksFoodChain| Admin Login</h2>
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">
@@ -53,7 +51,7 @@ if(isset($_POST['login']))
   }  ?> </p>
                     <form class="m-t" role="form" action="" method="post" name="login">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="username" name="username" required="">
+                            <input type="text" class="form-control" placeholder="Username" name="username" required="">
                         </div>
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password" required="" name="password">

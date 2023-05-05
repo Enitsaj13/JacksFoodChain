@@ -23,7 +23,7 @@ if($query)
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
     
 
@@ -33,6 +33,8 @@ if($query)
     <link rel="stylesheet" href="assets/css/red-color.css">
     <link rel="stylesheet" href="assets/css/yellow-color.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body itemscope>
 <?php include_once('includes/header.php');?>
@@ -93,12 +95,12 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
     <input type="hidden" name="foodid" value="<?php echo $row['ID'];?>"> 
 	<input class="qty" name="foodqty" type="text" value="1">
                                                </p>
-                                                <span class="price">Sh. <?php echo $row['ItemPrice'];?></span>
+                                                <span class="price">₱ <?php echo $row['ItemPrice'];?></span>
 
                                <?php if($_SESSION['fosuid']==""){?>
-  <a class="log-popup-btn btn  pull-right red-bg brd-rd3" href="#" title="Login">Add to Cart</a>
+  <a class="log-popup-btn btn btn-primary pull-right" href="#" title="Login"><i class='bx bxs-cart'></i> Add to Cart</a>
 <?php } else {?>
-<button type="submit" name="addcart" class="btn  pull-right red-bg brd-rd3">Add to Cart</button>
+<button type="submit" name="addcart" class="btn btn-primary pull-right"><i class='bx bxs-cart'></i> Add to Cart</button>
                                                 <?php } ?>
                                         </form>
                                             </div>

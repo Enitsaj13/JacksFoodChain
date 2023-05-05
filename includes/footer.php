@@ -1,4 +1,4 @@
-  <footer>
+  <!-- <footer>
             <div class="block top-padd80 bottom-padd80 red-bg">
                 <div class="container">
                     <div class="row">
@@ -7,7 +7,7 @@
                                 <div class="row">
                                     <div class="col-md-3 col-sm-6 col-lg-3">
                                         <div class="widget about_widget wow fadeIn" data-wow-delay="0.1s">
-                                            <div class="logo"><h1 itemprop="headline"><a href="index.php" title="Home" itemprop="url" style="color:#fff">Food Ordering System</a></h1></div>
+                                            <div class="logo"><h1 itemprop="headline"><a href="index.php" title="Home" itemprop="url" style="color:#fff">JacksFoodChain</a></h1></div>
                                            
                                        
                                         </div>
@@ -31,7 +31,7 @@
                                                 <li><a href="my-account.php" title="My Order" itemprop="url">My Orders</a></li>
                                                <li><a href="track-order.php" title="Track Order" itemprop="url">Track Order</a></li>
                                             </ul-->
-                                        </div>
+                                        <!-- </div>
                                     </div>
                                     <div class="col-md-3 col-sm-6 col-lg-3">
                                         <div class="widget get_in_touch wow fadeIn" data-wow-delay="0.4s">
@@ -43,15 +43,14 @@
                                     </div>
                                 </div>
                             </div><!-- Footer Data -->
-                        </div>
+                        <!-- </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> --> 
 
             <div class="bottom-bar dark-bg text-center">
             <div class="container">
-                <p>&copy; <?php echo strftime("%Y", time()); ?>
-                <p itemprop="description">JacksFoodChain Ordering and Reservation System</p>
+                <p itemprop="description"><b>© 2023 JacksFoodChain. All Rights Reserved.</b></p>
             </div>
         </div>

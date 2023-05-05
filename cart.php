@@ -42,8 +42,10 @@ echo "<script>window.location.href='my-account.php'</script>";
 if(isset($_GET['delid'])) {
 $rid=$_GET['delid'];
 $query=mysqli_query($con,"delete from tblorders where ID='$rid'");
-echo '<script>alert("Food item deleted")</script>';
+// show toast alert from bootstrap 4
+
 echo "<script>window.location.href='cart.php'</script>";
+
 
 }
 ?>
@@ -55,7 +57,9 @@ echo "<script>window.location.href='cart.php'</script>";
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <title>Food Ordering System | Food Details</title>
+    <title>JacksFoodChain | Food Details</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
 
     <link rel="stylesheet" href="assets/css/icons.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -113,8 +117,8 @@ echo "<script>window.location.href='cart.php'</script>";
 <tr>
     <th>#</th>
     <th>Food Item</th>
-    <th>Qty</th>
-    <th>Per Unit Price</th>
+    <th>Quantity</th>
+    <th>Price</th>
        <th>Total</th>
           <th>Action</th>
 </tr>
@@ -135,41 +139,35 @@ while ($row=mysqli_fetch_array($query)) {
     <a href="food-detail.php?fid=<?php echo $row['FoodId'];?>" title="" itemprop="url"><?php echo $row['ItemName']?></a>
 </td>
 <td><?php echo $qty=$row['FoodQty']?></td>
-<td>Sh.<?php echo $ppu=$row['ItemPrice']?></td>
-<td><?php echo $total=$qty*$ppu;?></td>
-<td><a href="cart.php?delid=<?php echo $row['frid'];?>" onclick="return confirm('Do you really want to delete?');";><i class="fa fa-trash" aria-hidden="true" title="Delete this food item"></i><a/></span></td>
+<td>₱ <?php echo $ppu=$row['ItemPrice']?></td>
+<td>₱ <?php echo $total=$qty*$ppu;?></td>
+<td><a style="color: red; font-size: 20px;" href="cart.php?delid=<?php echo $row['frid'];?>" onclick="return confirm('Do you really want to delete?');";><i class="fa fa-trash" aria-hidden="true" title="Delete this food item"></i><a/></span></td>
 </tr>
 
 <?php $grandtotal+=$total;}?>
 <thead>
 <tr>
-    <th colspan="4" style="text-align:center;">Grand Total</th>
-<th style="text-align:center;">Sh.<?php echo $grandtotal;?></th>
+    <th colspan="4" style="text-align:center;"> 
+    Total Amount to Pay:
+</th>
+<th style="text-align:center;">₱<?php echo $grandtotal;?></th>
 <th></th>
 </tr>
 </thead>
 <form method="post">
 <tr>
-
-<thead>
-<tr>
-     <th colspan="4" style="text-align:center;">Cash On Delivery</th>
-     <th style="text-align:center;">pay online</th>
-     <th></th>
-</tr>
-</thead>
 <form method="post">
 <tr>
 
 <td colspan="3">
-<input type="text" name="flatbldgnumber"  placeholder="Flat or Building Number" class="form-control" required="true"></td>
+<input type="text" name="flatbldgnumber"  placeholder="House Number" class="form-control" required="true"></td>
 <td colspan="3">
 <input type="text" name="streename" placeholder="Street Name" class="form-control" required="true">      
 </td>
 </tr>
 <tr>
 <td colspan="3"> 
-<input type="text" name="area"  placeholder="Area" class="form-control" required="true">
+<input type="text" name="area"  placeholder="Barangay" class="form-control" required="true">
 </td>
 <td colspan="3">
 <input type="text" name="landmark" placeholder="Landmark if any" class="form-control">
@@ -182,14 +180,20 @@ while ($row=mysqli_fetch_array($query)) {
 </tr>
 <tr>
     <td colspan="3">
-       <button   type="submit" name="placeorder" class="btn theme-btn btn-lg">Place order</button>
+       <button type="submit" name="placeorder" class="btn btn-primary">Place Order</button>
    </td></tr>
    </form>
 
 <?php } else {?>
-    <tr>
+    <!-- <tr>
         <td colspan="6" style="color:red">You cart is empty</td>
+    </tr> -->
+    <!-- show cart empty image -->
+    <tr>
+        <td colspan="6" style="text-align:center;"><img src="assets/images/empty-cart.png" alt="empty-cart" width="400" height="400"></td>
     </tr>
+    
+    
 <?php } ?>
 </tbody>
 </table>

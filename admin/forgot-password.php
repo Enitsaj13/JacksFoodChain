@@ -44,7 +44,7 @@ if(isset($_POST['submit']))
         <div class="row">
 
             <div class="col-md-6">
-                <h2 class="font-bold">Food Ordering System | Admin  Forgot Password</h2>
+                <h2 class="font-bold">JacksFoodChain | Admin  Forgot Password</h2>
 
               
             </div>
@@ -58,7 +58,7 @@ if(isset($_POST['submit']))
                             <input type="email" class="form-control" placeholder="Email" name="email" required="">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Mobile Number" required="" name="contactno" maxlength="10" pattern="[0-9]{10}">
+                            <input type="number" class="form-control" placeholder="Mobile Number" required="" name="contactno" maxlength="11" pattern="[0-9]{11}">
                         </div>
                         <button type="submit" class="btn btn-primary block full-width m-b" name="submit">Reset</button>
 

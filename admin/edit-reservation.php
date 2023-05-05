@@ -7,16 +7,16 @@ if (strlen($_SESSION['fosaid']==0)) {
   } else{
 if(isset($_POST['submit']))
   {
-    $reserve_id = $_GET['reserve_id'];
-    $no_of_guest = $_POST['no_of_guest'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $date_res = $_POST['date_res'];
-    $time = $_POST['time'];
-    $suggestions = $_POST['suggestions'];
-   
+    $reserve_id=$_GET['reserve_id'];
+    $no_of_guest=$_POST['no_of_guest'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $date_res=$_POST['date_res'];
+    $time=$_POST['time'];
+    $suggestions=$_POST['suggestions'];
+    
 
-    $query=mysqli_query($con, "update tblreservation set no_of_guest='$no_of_guest', email='$email', phone ='$phone', date_res ='$date_res', time ='$time', suggestions ='$suggestions' where ID='$reserve_id'");
+    $query=mysqli_query($con, "update tblreservation set no_of_guest='$no_of_guest', email='$email', phone='$phone', date_res='$date_res', time='$time', suggestions='$suggestions' where reserve_id='$reserve_id'");
 
 
     if ($query) {
@@ -37,7 +37,7 @@ if(isset($_POST['submit']))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -61,13 +61,13 @@ if(isset($_POST['submit']))
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-lg-10">
-                <h2>Edit Reservation</h2>
+                <h2>Reservation Details</h2>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
                         <a href="dashboard.php">Home</a>
                     </li>
                     <li class="breadcrumb-item">
-                        <a>Reservation Details</a>
+                        <a>User Details</a>
                     </li>
                     <li class="breadcrumb-item active">
                         <strong>Update</strong>
@@ -85,9 +85,9 @@ if(isset($_POST['submit']))
                             <p style="font-size:16px; color:red;"> <?php if($msg){
     echo $msg;
   }  ?> </p> 
-                      <?php
+<?php
 $reserve_id=$_GET['reserve_id'];
-$ret=mysqli_query($con,"select * from tblreservation where ID='$reserve_id'");
+$ret=mysqli_query($con,"select * from tblreservation where reserve_id='$reserve_id'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 
@@ -95,32 +95,35 @@ while ($row=mysqli_fetch_array($ret)) {
 
                             <form id="submit" action="#" class="wizard-big" method="post" name="submit">
                                     <fieldset>
-                                          <div class="form-group row"><label class="col-sm-2 col-form-label">No of guest:</label>
-                                                <div class="col-sm-10"><input name='no_of guest' id="no_of_guest" class="form-control white_bg" value="<?php  echo $row['no_of_guest'];?>">
-     
-       
-                                            </div>
-                                            </div>
-                                            <div class="form-group row"><label class="col-sm-2 col-form-label">Email:</label>
-                                                <div class="col-sm-10"><input type="text" class="form-control" name="email" value="<?php  echo $row['email'];?>"></div>
-                                            </div>
-                    
-                                            
-                                            <div class="form-group row"><label class="col-sm-2 col-form-label">Mobile Number:</label>
-                                                <div class="col-sm-10"><input type="text" class="form-control" name="phone" readonly="true" value="<?php  echo $row['phone'];?>">
-                                            </div>
-                                            </div>
 
-                                            <div class="form-group row"><label class="col-sm-2 col-form-label">Reservation Date:</label>
-                                                <div class="col-sm-10"><input type="text" class="form-control" name="date" readonly="true" value="<?php  echo $row['date_res'];?>"></div>
-                                            </div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">No. of Guest:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="no_of_guest" value="<?php  echo $row['no_of_guest'];?>"></div>
+                                    </div>
 
-                                            <div class="form-group row"><label class="col-sm-2 col-form-label">Time:</label>
-                                                <div class="col-sm-10"><input type="text" class="form-control" name="time" readonly="true" value="<?php  echo $row['time'];?>">
-                                                </div>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Email:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" readonly="true"
+                                        name="email" value="<?php  echo $row['email'];?>"></div>
+                                    </div>
 
-                                           
-                                        </fieldset>
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Phone:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" readonly="true"
+                                        name="phone" value="<?php  echo $row['phone'];?>"></div>
+                                    </div>
+
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Date:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="date_res" value="<?php  echo $row['date_res'];?>"></div>
+                                    </div>
+
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Time:</label>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="time" value="<?php  echo $row['time'];?>"></div>
+                                    </div>
+
+                                    <div class="form-group row"><label class="col-sm-2 col-form-label">Suggestions:</label>
+                                        <div class="col-sm-10">
+                                            <textarea type="text" class="form-control" rows="4" cols="50" name="suggestions"><?php  echo $row['suggestions'];?></textarea>
+                                        </div>
+                                    </div>
+                                         
 
                                 </fieldset>
                                 
@@ -247,4 +250,4 @@ while ($row=mysqli_fetch_array($ret)) {
 </body>
 
 </html>
-   <?php } ?> -->
+   <?php } ?>

@@ -68,7 +68,10 @@ $name=$row['AdminName'];
                        
                     </ul>
                 </li>
-                <li><a href="reservations.php"  title="BOOK A TABLE" itemprop="url">Reservations </a></li>
+                <li>
+                    <a href="reservations.php"><i class="fa fa-list"></i> <span class="nav-label">Reservations</span> <span class="fa arrow"></span></a>
+                </li>
+
                    <li>
                     <a href="#"><i class="fa fa-file"></i> <span class="nav-label">Reports</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">

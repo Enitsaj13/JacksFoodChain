@@ -29,7 +29,7 @@ $query=mysqli_query($con,"delete from tblcategory where ID='$catid'");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -82,8 +82,12 @@ while ($row=mysqli_fetch_array($ret)) {
               
                   <td><?php  echo $row['CategoryName'];?></td>
                   <td><?php  echo $row['CreationDate'];?></td>
-                  <td><a href="editcategory.php?editid=<?php echo $row['ID'];?>">Edit</a> | 
-                    <a href="manage-foodcategory.php?del=<?php echo $row['ID'];?>" style="color:red;" onclick="return confirm('Do you really want to delete the category?');">Delete</a>
+                  <td><a href="editcategory.php?editid=<?php echo $row['ID'];?>">
+                <i class="fa fa-edit fa-1x"></i>
+                </a>  
+                    <a href="manage-foodcategory.php?del=<?php echo $row['ID'];?>" style="color:red;" onclick="return confirm('Do you really want to delete the category?');">
+                <i class="fa fa-trash fa-1x"></i>
+                </a>
                 </tr>
                 <?php 
 $cnt=$cnt+1;

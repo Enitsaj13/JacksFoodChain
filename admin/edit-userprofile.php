@@ -34,7 +34,7 @@ if(isset($_POST['submit']))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -82,7 +82,7 @@ if(isset($_POST['submit']))
                             <p style="font-size:16px; color:red;"> <?php if($msg){
     echo $msg;
   }  ?> </p> 
-                      <?php
+<?php
 $sid=$_GET['userid'];
 $ret=mysqli_query($con,"select * from tbluser where ID='$sid'");
 $cnt=1;

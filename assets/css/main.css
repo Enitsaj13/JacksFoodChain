@@ -1,66 +1,3 @@
-/*--
-Master Style Sheet
-
-  Project Name:         foodchow Html5 template;
-  last changes/update:  11/11/2021;
-
---*/
-/*** ======= // TABLE OF CONTENT // ============================
-01- Google Fonts
-02- Plugin Stylesheets Import
-03- General Styling
-04- Social Media Offical Colors
-05- Cross Browser Compatibility
-06- Chosen Container Style
-07- Topbar Social
-08- Sticky header
-09- Responsive Header
-10- Restaurant Searching Section
-11- Title Style 1
-12- Top Restaurants Section
-13- Title Style 2
-14- Popular Dishes Section
-15- Featured Restaurant Section
-16- Featured Restaurant Gallery & Video
-17- Easy Steps Section
-18- Most Popular Section
-19- App Section
-20- Footer
-21- Find Restaurant Section Style 2
-22- Top Restaurants Section Style 2
-23- Popular Restaurants Sec Style 2
-24- News Update Section
-25- Page Title Sec
-26- Breadcrumbs
-27- Pagination
-28- Price Table Section
-29- Radio Box
-30- Check Box
-31- Sidebar Widgets
-32- Mini Posts Style
-33- Contact Us Page
-34- Contact Form
-35- Restaurants Found Page
-36- Restaurant Detail Page
-37- Restaurant Detail Tabs
-38- Order Section
-39- Page Loader
-40- Blog Detail page
-41- Author & Comment Sec
-42- Reply Form
-43- How It Works Page
-44- Register Reservation
-45- Acvitation Tab
-46- Coming Soon page
-47- Search Not Found
-48- Error Page
-49- Newsletter Popup
-50- Gallery Page
-51- Social Media Offical Colors
-
-
-===================================================== ***/
-
 /*===== Google Fonts =====*/
 @import url('https://fonts.googleapis.com/css?family=Great+Vibes|Lato|Poppins:300,400,400i,500,600,700,800');
 
@@ -1572,7 +1509,7 @@ h3.marginb-0 {margin-bottom: 0;}
 }
 .featured-restaurant-info > h4 {
     display: inline-block;
-    float: left;
+    float: none;
     font-size: 18px;
     font-weight: 600;
     margin: 10px 0 19px;
@@ -2669,7 +2606,6 @@ footer {
 }
 .contact-info-sec > .row > div:last-child .contact-info-box {border-right: 0;}
 /*===== Contact Form =====*/
-.contact-form-wrapper {}
 .contact-form-inner {
   max-width: 960px;
   display: inline-block;
@@ -7108,9 +7044,4 @@ a.thanks-close:focus {color: #333;}
 }
 .featured-restaurant-box.with-bg .post-meta{padding-left: 0;}
 .about-feat.text-center > img{width: 100%;}
-
-
-
-
-
 

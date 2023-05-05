@@ -14,7 +14,9 @@ include_once('includes/dbconnection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <title>Food Ordering System | Food Details</title>
+    <title>JacksFoodChain | Food Details</title>
+    <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
     <link rel="stylesheet" href="assets/css/icons.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -85,15 +87,15 @@ $oid=$_GET['onumber'];
               while($row=mysqli_fetch_array($query))
               { ?>     
                 <h3 align="center">Order #<?php echo $oid;?> Details</h3>
-<table border="1" style="padding-left:10%">
+<table border="1" style="padding-left:10%; border-radius: 10px">
 <tr>
-<th>Order Number#</th> 
+<th style="padding-left:2%">Order Number#</th> 
 <td><?php echo $row['Ordernumber'];?></td>   
-<th>Order Date/Time</th>
+<th style="padding-left:2%">Order Date/Time</th>
 <td><?php echo $row['OrderTime']?></td>
 </tr>
 <tr>
-<th>Order Status</th> 
+<th style="padding-left:2%">Order Status</th> 
 <td colspan="3"><?php $status=$row['OrderFinalStatus'];
 if($status==''){
  echo "Waiting for Restaurant confirmation";   
@@ -104,24 +106,24 @@ echo $status;
                                                     ?> (<a href="javascript:void(0);" onClick="popUpWindow('trackorder.php?oid=<?php echo htmlentities($row['Ordernumber']);?>');" title="Track order" style="color:red;"><i class="flaticon-transport"></i> Track Order</a>)</td>   
 </tr>
 <tr>
-    <th colspan="4" style="text-align:center;color:blue; font-size:20px;">Delivery Address</th>
+    <th colspan="4" style="text-align:center;color:blue; font-size:20px; padding-left:2%">Delivery Address</th>
 </tr>
 <tr>
-<th>Flat No / Building No.:</th>
+<th style="padding-left:2%">Building No.:</th>
 <td><?php echo $row['Flatnobuldngno']?></td> 
-<th>Street Name:</th>
+<th style="padding-left:2%">Street Name:</th>
 <td> <?php echo $row['StreetName']?></td>    
 </tr>
 
 <tr>
-<th>Area :</th>
+<th style="padding-left:2%">Area :</th>
 <td><?php echo $row['Area']?></td> 
-<th>Landmark:</th>
+<th style="padding-left:2%">Landmark:</th>
 <td><?php echo $row['Landmark']?></td>    
 </tr>
 
 <tr>
-<th>City :</th>
+<th style="padding-left:2%">City :</th>
 <td><?php echo $row['City']?></td> 
    
 </tr>
@@ -140,9 +142,9 @@ echo $status;
 <tr>
     <th>#</th>
     <th>Food Item</th>
-    <th>Qty</th>
-    <th>Per Unit Price</th>
-       <th>Total</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Total</th>
 
 </tr>
 </thead>
@@ -162,15 +164,17 @@ while ($row=mysqli_fetch_array($query)) {
     <a href="food-detail.php?fid=<?php echo $row['FoodId'];?>" title="" itemprop="url"><?php echo $row['ItemName']?></a>
 </td>
 <td><?php echo $qty=$row['FoodQty']?></td>
-<td><?php echo $ppu=$row['ItemPrice']?></td>
-<td><?php echo $total=$qty*$ppu;?></td>
+<td>₱ <?php echo $ppu=$row['ItemPrice']?></td>
+<td>₱ <?php echo $total=$qty*$ppu;?></td>
 </tr>
 
 <?php $grandtotal+=$total;}?>
 <thead>
 <tr>
-    <th colspan="4" style="text-align:center;">Grand Total</th>
-<th style="text-align:center;"><?php echo $grandtotal;?></th>
+    <th colspan="4" style="text-align:center;">
+    Total Amount to Pay: 
+</th>
+<th style="text-align:center;">₱ <?php echo $grandtotal;?></th>
 </tr>
 </thead>
 

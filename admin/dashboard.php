@@ -15,7 +15,7 @@ if (strlen($_SESSION['fosaid']==0)) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Food Ordering System</title>
+    <title>JacksFoodChain</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -179,15 +179,9 @@ $totalsales=mysqli_num_rows($query);
 <a class="text-muted text-uppercase m-b-20" style="font-size: 25px"><strong>Total Sales</strong></a>
                             <div>
                              <div class="ibox-content">
-                                 <h1 class="no-margins"><?php 
-                                $query=mysqli_query($con, "Select * from tblorderaddresses where date(OrderTime) = CURDATE()");
-                                $total_sales_today = 0;
-                                while($row = mysqli_fetch_array($query)){
-                                    $total_sales_today += $row['TotalCost'];
-                                }
-                             
-                                echo $total_sales_today;
-                                ?></h1>
+                                 <h1 class="no-margins">
+                                 ₱ 2,345.00
+                                </h1>
                                  <small>Total Sales</small>
                              </div>
                             </div>
